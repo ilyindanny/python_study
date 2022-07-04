@@ -3,5 +3,5 @@ from ast import For
 from calendar import prcal
 
 
-a = input("b")
+a = input("введите что-то: ")
 print(a)
