@@ -1,3 +1,2 @@
 
-a = input("b");
-print(a);
+print('hallo world!')
