@@ -44,13 +44,12 @@ def WhatQuarter(n, m):
             print('3')
         elif n > 0 and m < 0:
             print('4')
+        elif n == 0 and m != 0:
+            print('лежит на оси Y')
+        elif m == 0 and n != 0:
+            print('лежит на оси X')
         else:
-            if n == 0 and m != 0:
-                print('лежит на оси Y')
-            elif m == 0 and n != 0:
-                print('лежит на оси X')
-            else:
-                print('лежит на пересечении осей X и Y')
+            print('лежит на пересечении осей X и Y')
     except:
         print('не корректный ввод')
 
