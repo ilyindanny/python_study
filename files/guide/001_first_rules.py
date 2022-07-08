@@ -89,7 +89,7 @@ print(text.isdigit())
 # или смотреть на pythonworld.ru
 
 # желательный формат строки:
-print('привет, {1} и {0}!'.format(text, 'world'))
+print('print: {1} и {0}!'.format(text, 'world'))
 
 # списки это вроде массива. типы могут быть разные. объявляется так:
 
