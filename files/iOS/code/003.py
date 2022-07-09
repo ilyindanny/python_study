@@ -19,7 +19,5 @@ text = 'abcdefghijklmnopqrstuvwxyz'
 print(len(text))
 
 print(text[len(text)-2:])
-gbb vbb
-
 
 print(text[-2:])
