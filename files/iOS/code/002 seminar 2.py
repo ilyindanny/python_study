@@ -1,4 +1,6 @@
-a = float(input('введите дробное число: '))
+# найти первую цифру после запятой
+
+a = float(input('введите число: '))
 
 def find_digit(x):
     x = x * 10
@@ -14,7 +16,7 @@ find_digit(a)
 # мой новый вариант:
 
 def find_digit():
-    result = int(float(input('введите дробное число: ')) * 10 % 10)
+    result = int(float(input('введите число: ')) * 10 % 10)
     if result:
         print(result)
     else:
@@ -33,11 +35,13 @@ def col_from_n():
 print(col_from_n())
 
 
+# является ли число квадратом другого
 
+def find_root():
+    a, b = map(int, input('введите два числа через запятую: ').split(','))
+    if a ** 2 == b or b ** 2 == a:
+        print('да')
+    else:
+        print('нет')
 
-
-
-
-
-
-
+find_root()
