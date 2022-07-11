@@ -1,4 +1,5 @@
 # найти первую цифру после запятой
+'''
 
 a = float(input('введите число: '))
 
@@ -45,3 +46,23 @@ def find_root():
         print('нет')
 
 find_root()
+'''
+
+# написать нужное по счету число из 0 и 5
+
+x = 0
+x -= 1
+l = '05'
+osn = 2
+res = ''
+
+while x > 0:
+    res += l[x % osn]
+    x //= osn
+if res:
+    print(res[::-1])
+else:
+    print('0')
+
+
+

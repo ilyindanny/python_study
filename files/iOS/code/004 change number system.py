@@ -1,3 +1,6 @@
+# перевести из одной вычтслительной системы в другую
+
+
 # input_number = int(input('Enter number: '))
 # number_to_letter = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -12,7 +15,7 @@
 
 
 num = 20
-letter = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+letter = '0123456789ABCDEF'
 
 osn = 16
 x = num
@@ -21,3 +24,25 @@ while x > 0:
     result += letter[x % osn]
     x //= osn
 print('{0} в C/C с основанием {1} = {2}'.format(num, osn, result[::-1]))
+
+
+# упрощенный для понимания метод (перевод в двоичную систему):
+
+x = 5
+result = ''
+
+while x > 0:
+    if x % 2:
+        result = '1' + result
+    else:
+        result = '0' + result
+    x //= 2
+print(result)
+
+
+
+
+
+
+
+
