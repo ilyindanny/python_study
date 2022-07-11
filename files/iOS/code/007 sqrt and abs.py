@@ -14,4 +14,4 @@ c = (a ** 2 + b ** 2) ** 0.5
 
 print('a {}, b {}, c {}'.format(a, b, round(c, 2))) 
 
-import this
+# import this
