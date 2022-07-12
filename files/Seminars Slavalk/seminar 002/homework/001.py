@@ -48,14 +48,29 @@ num = int(input('введите число: '))
 
 
 def func(n):
-	res = 0
+	result = 0
 	for i in range(1, n + 1):
-		res += ((1 + 1 / i) ** i)
-	print(round(res, 3))
+		result += ((1 + 1 / i) ** i)
+	print(round(result, 3))
 
 
 func(num)
 
 # Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на
-# указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
+# указанных позициях. Позиции вводит пользователь через пробел.
+
+num = int(input('введите число: '))
+
+
+def fill_list(n):
+	col = []
+	index = 1
+	for i in range(-n, n + 1):
+		col[index] = i
+		index += 1
+		print(col)
+
+
+fill_list(num)
+
 # Реализуйте алгоритм перемешивания списка.
