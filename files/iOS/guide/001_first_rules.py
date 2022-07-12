@@ -202,21 +202,7 @@ if a and b:
 # params:
 def f(param, *args):
     for i in args:
-        print(i + param)
-f(' * ', 1,3,9,4,6,1)
+        print(str(i), param, end='')
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
+f(' 🌺 ', 1,3,9,4,6,1)
