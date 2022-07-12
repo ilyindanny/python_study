@@ -9,12 +9,12 @@ number = input('введите число: ')
 
 
 def sum_of_digit(num):
-	result = 0
-	for i in range(len(num)):
-		if not num[i].isdigit():
-			continue
-		result += float(num[i])
-	print(result)
+    result = 0
+    for i in range(len(num)):
+        if not num[i].isdigit():
+            continue
+        result += float(num[i])
+    print(result)
 
 
 sum_of_digit(number)
@@ -30,10 +30,10 @@ num_N = int(input('введите число: '))
 
 
 def mult_of_digit(num):
-	result = 1
-	for i in range(1, num_N + 1):
-		result *= i
-		print(result)
+    result = 1
+    for i in range(1, num_N + 1):
+        result *= i
+        print(result)
 
 
 mult_of_digit(num_N)
@@ -44,6 +44,15 @@ mult_of_digit(num_N)
 #
 # - Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
 
+num = 6
+
+def func(n):
+    res = 0
+    for i in range(1, n + 1):
+        res += ((1 + 1 / i) ** i)
+    print(res)
+
+func(num)
 
 # Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на
 # указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
