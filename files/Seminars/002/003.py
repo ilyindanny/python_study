@@ -8,12 +8,12 @@ a = int(input('введите число: '))
 
 
 def fun(n):
-	m = 1
-	st = []
-	for i in range(n):
-		st.append(m)
-		m *= -3
-	return st
+    sum = 1
+    result = []
+    for i in range(n):
+        result.append(sum)
+        sum *= -3
+    return result
 
 
 print(fun(a))
