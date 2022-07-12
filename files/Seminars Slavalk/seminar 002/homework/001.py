@@ -48,10 +48,10 @@ num = int(input('введите число: '))
 
 
 def func(n):
-	res = 0
+	result = 0
 	for i in range(1, n + 1):
-		res += ((1 + 1 / i) ** i)
-	print(round(res, 3))
+		result += ((1 + 1 / i) ** i)
+	print(round(result, 3))
 
 
 func(num)
