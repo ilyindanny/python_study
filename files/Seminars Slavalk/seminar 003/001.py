@@ -1,3 +1,5 @@
+import my_functions as fun
+
 # Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной
 # позиции.
 #
@@ -6,19 +8,8 @@
 # - [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 
 
-def get_collection():
-	col = []
-	try:
-		n = float(input('введите несколько чисел через пробел: '))
+collection = fun.make_float_collection()
 
-	finally:
-		dd = 0
-	return col
-
-import my_functions
+fun.get_sum(collection)
 
 
-
-get_collection()
-
-print(col)
