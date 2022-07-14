@@ -77,4 +77,4 @@ def return_binary(numm):
 	while numm > 0:
 		result = str(numm % 2) + result
 		numm //= 2
-	print(result, '(0)')
+	print(result, '(2)')
