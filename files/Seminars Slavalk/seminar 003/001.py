@@ -46,9 +46,3 @@ fun.find_min_max(collection)
 # - 2 -> 10
 
 fun.return_binary(int(input('введите целое число: ')))
-
-
-
-
-
-
