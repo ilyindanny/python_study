@@ -1,48 +1,47 @@
-import my_functions as fun
+# найти строку в списке
 
-# Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной
-# позиции.
-#
-# Пример:
-#
-# - [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
+col = ['g123', '123', 123, '123', '345', 'b123']
+n_find = '123'
 
+def f1(col, n_find):
+    count = 0
+    result = -1
+    for i in range(len(col)):
+            if col[i] == n_find:
+                count += 1
+                if count == 2:
+                    result = i
+    print('[{}]'.format(result))
 
-collection = fun.make_float_collection()
-
-fun.get_sum(collection)
-
-
-# Напишите программу, которая найдёт произведение пар чисел списка. Парой считаем первый и последний элемент,
-# второй и предпоследний и т.д.
-#
-# Пример:
-#
-# - [2, 3, 4, 5, 6] => [12, 15, 16];
-# - [2, 3, 5, 6] => [12, 15]
-
-collection = fun.make_float_collection()
-
-fun.get_sum_other(collection)
-
-# Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным
-# значением дробной части элементов.
-#
-# Пример:
-#
-# - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
-
-collection = fun.get_fractions()
-
-fun.find_min_max(collection)
+f1(col, n_find)
 
 
-# Напишите программу, которая будет преобразовывать десятичное число в двоичное.
-#
-# Пример:
-#
-# - 45 -> 101101
-# - 3 -> 11
-# - 2 -> 10
+# найти внутри элемента
+def f2(col, n_find):
+    result = False
+    for i in range(len(col)):
+        temp = str(col[i])
+        #  result = temp.find('123')
+        result = n_find in temp
+    print(result)
 
-fun.return_binary(int(input('введите целое число: ')))
+f2(col, n_find)
+
+
+# найти внутри элемента
+def f3(col, n_find):
+    result = False
+    for i in col:
+        temp = str(i)
+        result = n_find in temp
+    print(result)
+
+f3(col, n_find)
+
+
+# еще одно решение похожей, но другой задачи:
+print(n_find in col)
+ 
+
+
+
