@@ -83,12 +83,17 @@ def return_binary(numm):
 # фибоначчи
 
 def fib(count):
-	n = 0
-	m = 1
-	temp = 0
-	bonacci = [0, 1]
-	for i in range(count):
-		temp = n + m
-		n = m
-		m = bonacci[i + 2] = temp
-	return bonacci
+	fibonacci = [0, 1]
+	# ряд чисел фибоначчи:
+	for i in range(count - 1):
+		fibonacci.append(fibonacci[i] + fibonacci[i + 1])
+
+	# ряд чисел негафибоначчи:
+	nega_fibonacci = [0, 1]
+	for i in range(count - 1):
+		nega_fibonacci.append(nega_fibonacci[i] + nega_fibonacci[i + 1] * -1)
+
+	result = nega_fibonacci[len(nega_fibonacci): 0: -1] + fibonacci
+
+	print(result)
+
