@@ -41,6 +41,38 @@ f3(col, n_find)
 
 # еще одно решение похожей, но другой задачи:
 print(n_find in col)
+
+
+# еще разок со словом contains
+
+def f4(col, nfind):
+    result = False
+    for i in col:
+        if i.__contains__(nfind): # только для строкового элемента
+            result = nfind in i
+    print(result)
+
+f4(col, n_find)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
