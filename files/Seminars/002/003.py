@@ -8,11 +8,11 @@ a = int(input('введите число: '))
 
 
 def fun(n):
-    sum = 1
+    summa = 1
     result = []
     for i in range(n):
-        result.append(sum)
-        sum *= -3
+        result.append(summa)
+        summa *= -3
     return result
 
 

@@ -6,7 +6,7 @@
 # - 0,56 -> 11
 
 
-num = input('введите самое вещественное число из нескольких цифр: ')
+num = input('введите число из нескольких цифр: ')
 
 
 def sum_of_digit(n):
@@ -33,7 +33,11 @@ def mult_of_digit(n):
 	result = 1
 	for i in range(1, n + 1):
 		result *= i
+<<<<<<< HEAD
 		print('ответ: {}'.format(result))
+=======
+		print(result)
+>>>>>>> dev
 
 
 mult_of_digit(num)

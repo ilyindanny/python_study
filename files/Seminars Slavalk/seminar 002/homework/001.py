@@ -34,7 +34,7 @@ def mult_of_digit(n):
     result = 1
     for i in range(1, n + 1):
         result *= i
-    print(result)
+        print(result)
 
 
 mult_of_digit(num)
@@ -123,7 +123,7 @@ def mix_collection(col):
         j = random.randint(0, len(index_list) - 1)
         
         # добавление в новую коллекцию случайного индекса
-        new_col.append(index_list[j])
+        new_col.append(col[index_list[j]])
         
         # удаление использованного индекса из списка индексов
         index_list.remove(index_list[j])
