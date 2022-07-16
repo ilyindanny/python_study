@@ -44,10 +44,9 @@ def get_sum(col: list):
 		print('на нечетных позициях элементы {}; ответ: {}'.format(clear_col, result))
 
 
-# сумма элементов массива, стоящих на нечетных индексах
+# произведение элементов массива
 def get_sum_other(col: list):
 	result = []
-	pair_col = []
 	n = 1
 	for i in range(0, (len(col) + 1) // 2):
 		result.append(col[i] * col[(len(col)) - n])
