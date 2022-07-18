@@ -10,8 +10,8 @@ for i in a:
     
     
 # возвращает int и str:
+# принимает строку
 
-# принимает строку и 
 a = [int(x) if x.isnumeric() else x for x in input('Enter line: ').split()]
 print (a)
 

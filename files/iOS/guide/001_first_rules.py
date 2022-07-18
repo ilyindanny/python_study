@@ -106,12 +106,19 @@ text_list = ['abc', '123', 456]
 text_list_cut = text_list[0: 2]
 print(text_list_cut)
 
-# добавление элемента в конец списка
+# добавление элемента в конец списка:
 text_list.append('789')
 print(text_list)
+
+# добавление элемента в указанную позицию:
+text_list.insert(2, 'abc')
+
 # возвращает последний элемент, удаляя его из массива:
 text_pop = text_list.pop()  # сейчас text_pop равен '789'
 print(text_pop)
+
+# возвращает указанный элемент по индексу, удаляя его из массива:
+text_pop = text_list.pop(2)
 
 # метод очищает весь список:
 # text_list.clear()
