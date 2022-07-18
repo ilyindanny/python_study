@@ -102,6 +102,10 @@ text_list = []
 # или сразу с инициализацией:
 text_list = ['abc', '123', 456]
 
+# или при помощи функции range:
+
+text_list = list(range(-5, 5))
+
 # срез списка возвращает список:
 text_list_cut = text_list[0: 2]
 print(text_list_cut)

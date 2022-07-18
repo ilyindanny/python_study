@@ -8,12 +8,18 @@ data.write('\nLINE\n')
 data.close()
 
 
-
 # второй вариант как открыть. после этого блока связь с файлом разрывается автоматически
 
 with open('file.txt', 'w') as data: # означает "воспринимать оператор как переменную data"
     data.write('LINE = 1\n')
-    data.write('LINE = 2\n')
+
+# вариант открытия для файла json:
+
+import json
+
+with open('file.json', 'w', encoding = 'utf-8') as data:
+    data.write(json.dumps('LINE = 1\n', ensure_ascii = False))
+    
 
 
 # третий вариант наверно
