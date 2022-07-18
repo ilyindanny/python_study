@@ -28,6 +28,13 @@ def f(coll):
 for i, j in f(collection).items():
     print(i, j)
 
+text_file = ''
+for i, j in f(collection).items():
+    text_file += str((i, j)) + '\n'
+
+with open('file.txt', 'w') as data:
+    data.write(text_file)
+
 
 
 # Задайте список из n чисел последовательности (1 + 1 / n)^n и выведите на экран их сумму.
