@@ -6,7 +6,7 @@ text_of_book = data.read()
 data.close()
 
 
-# создание массива из текста без знаков препинания:
+# создание массива без знаков препинания из текста:
 
 def text_coll(start_str):
 	temp_coll = ''
