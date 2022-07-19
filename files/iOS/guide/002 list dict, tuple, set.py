@@ -40,6 +40,13 @@ print(text_list)
 del text_list[1]
 print(text_list)
 
+#  удалить можно даже рандомно:
+
+import random
+lst = [1,2,3,4,5,6]
+lst.pop(random.randint(1, len(lst)-1))
+
+
 # функция возвращает длину списка:
 print(len(text_list))
 
