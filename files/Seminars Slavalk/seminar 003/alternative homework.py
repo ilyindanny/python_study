@@ -30,7 +30,7 @@ def find_max(coll):
 	maxx = 0
 	minn = 0
 
-	#  если элемент содержит точку, он записывается в новый список (в целой части 0):
+	#  если элемент содержит точку, он записывается в новый список float (в целой части 0):
 	for i in range(len(coll)):
 		if not coll[i].isdigit():
 			new_coll.append(float('0.' + coll[i].split('.')[1]))
@@ -42,7 +42,8 @@ def find_max(coll):
 		if new_coll[j] < new_coll[minn]:
 			minn = j
 
-	return [new_coll[maxx], new_coll[minn]]
+	result = [new_coll[maxx], new_coll[minn]]
+	return get_int(result)
 
 
 #  поиск разности между дробными частями с обходом погрешности float
@@ -60,6 +61,5 @@ def get_int(coll):
 
 num_collection = get_coll()
 
-maxx_minn_collection = find_max(num_collection)
+print(find_max(num_collection))
 
-print(get_int(maxx_minn_collection))
