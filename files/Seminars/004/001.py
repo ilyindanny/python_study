@@ -13,7 +13,8 @@ def f(coll):
         if coll[i] < coll[minn]: minn = i
         average += coll[i]
     
-    average = average / len(coll)
+    average /= len(coll)
+    
     dict = \
     {
         'максимальное число': coll[maxx],
@@ -28,12 +29,12 @@ def f(coll):
 for i, j in f(collection).items():
     print(i, j)
 
-text_file = ''
+text_for_file = ''
 for i, j in f(collection).items():
-    text_file += str((i, j)) + '\n'
+    text_for_file += str((i, j)) + '\n'
 
 with open('file.txt', 'w') as data:
-    data.write(text_file)
+    data.write(text_for_file)
 
 
 

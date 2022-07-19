@@ -1,16 +1,23 @@
-# моя единственная рекрсия. числа Фибоначчи:(тока считает неверно)
+#  числа Фибоначчи:
 
-def fib(i):
-    if i in [2]:
+def fibo(n):
+    if n in [1, 2]:
         return 1
     else:
-        return (fib(i+1) + fib(i+1))
-            
-        
-
-print(fib(0))
+        return fibo(n - 1) + fibo(n - 2)
 
 
+list = []
+
+x = int(input('input: '))
+
+for i in range (1, x + 1):
+    list.append(fibo(i))
+print (list)
+
+
+
+#  моя единственная рекурсия:
 
 def f(result, n):
     if n in [5]:
@@ -19,24 +26,4 @@ def f(result, n):
         return f(result+str(n*n)+' ',n+1)
 
 print(f('', 2))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
