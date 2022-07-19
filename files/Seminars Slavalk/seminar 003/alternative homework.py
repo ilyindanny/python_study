@@ -1,66 +1,52 @@
-#  возвращает список str, проверяя, могут ли значения быть преобразованы в float:
+#  проверяет, могут ли значения быть преобразованы в float
+#  возвращает список float только с дробными значениями и целой частью = 0
+
+
 def get_coll():
 	digit = 1
-	coll = []
-	temp = 0
+	new_coll = []
 	while digit:
 		try:
 			coll = list(input('введите список вещественных чисел через пробел: ').split())
-			#  проверка на правильный ввод
-			only_int = 0
+			#  проверка на правильный ввод и создание нового списка
+			not_zero = 0
 			for i in coll:
-				temp = float(i)
-
-				#  проверка. чисел с дробью не должно быть меньше двух:
-				only_int += i.isdigit()
-				1 / (only_int - len(coll))
-				1 / (only_int - len(coll) + 1)
+				float(i)
+				if not i.isdigit():
+					new_coll.append(float('0.' + i.split('.')[1]))
+					if float(i.split('.')[1]) > 0:
+						not_zero += 1
+			1 / (len(new_coll) - 1) / not_zero  # деление на 0, если длина списка = 1, либо не было значащей части дроби
 			digit = 0
-
 		except:
-			print('невозможно преобразовать в float или недостаточно дробных частей для вычисления')
+			new_coll.clear()
+			print('невозможно преобразовать в float, либо недостаточно дробных частей для вычисления')
+	return new_coll
 
-	return coll
 
+#  принимает список float, вычисляет мин и макс без погрешности float:
 
-#  внутри метода запускается метод get_int(),
-#  этому методу передается список float с минимальным и максимальным дробным числом (в целой части 0)
 
 def find_max(coll):
-	new_coll = []
-	maxx = 0
-	minn = 0
-
-	#  если элемент содержит точку, он записывается в новый список float (в целой части 0):
-	for i in range(len(coll)):
-		if not coll[i].isdigit():
-			new_coll.append(float('0.' + coll[i].split('.')[1]))
-
-	#  поиск максимальной и минимальной дробной части:
-	for j in range(len(new_coll)):
-		if new_coll[j] > new_coll[maxx]:
-			maxx = j
-		if new_coll[j] < new_coll[minn]:
-			minn = j
-
-	result = [new_coll[maxx], new_coll[minn]]
-	return get_int(result)
-
-
-#  принимает массив из двух элементов макс и мин. поиск разности между дробными частями с обходом погрешности float
-
-def get_int(coll):
+	maxx = coll[0]
+	minn = coll[0]
 	factor = 1
 
+	#  поиск максимальной и минимальной дробной части:
+	for j in coll:
+		if j > maxx:
+			maxx = j
+		if j < minn:
+			minn = j
+
 	# цикл вычисляет максимальный порядок дробного остатка:
-	for i in coll:
+	for i in minn, maxx:
 		while i * factor != int(i * factor):
 			factor *= 10
 
-	return (coll[0] * factor - coll[1] * factor) / factor
+	return (maxx * factor - minn * factor) / factor
 
 
 num_collection = get_coll()
 
 print(find_max(num_collection))
-
