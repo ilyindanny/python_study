@@ -78,6 +78,13 @@ text.find('a')
 # разбиение на массив строк. разделитель по умолчанию — пробел (тоже метод, вызывается через точку):
 print(text.split())
 
+# можно сначала многое заменить в строке на один символ, а потом по нему разбить:
+
+my_str = 'barbarian'
+my_str = my_str.replace('bar', 'mur')  #. 'murmurian'
+my_str = my_str.replace('mur', 'bur', 1)  # 'burmurian'
+
+
 # проверка на число (true или false):
 print(text.isdigit())
 
