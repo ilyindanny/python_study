@@ -22,8 +22,7 @@ print(text_list)
 text_list.insert(2, 'abc')
 
 # возвращает последний элемент, удаляя его из массива:
-text_pop = text_list.pop()  # сейчас text_pop равен '789'
-
+text_pop = text_list.pop()
 
 # возвращает указанный элемент по индексу, удаляя его из массива:
 text_pop = text_list.pop(0)
@@ -59,8 +58,9 @@ for i in a:
         print(j, end=' ')
     print()
 
-# 9 in col - ищет 9 в col:
+
 col = [3, 9, 4, 5, 2]
+9 in col # ищет 9 в col:
 print(col)
 
 # можно это написать соазу в параметрах функции print:

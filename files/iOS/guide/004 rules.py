@@ -13,3 +13,9 @@ lst = [int(x) for x in text.split()]
 
 min(lst)
 max(lst)
+
+
+# хитинги нужно добавлять. тогда IDE сможет давать подсказки. вот так:
+
+def f1(a: int, b: str) -> int:
+    return a + int(b)
