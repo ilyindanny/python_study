@@ -1,51 +1,62 @@
-#  проверяет, могут ли значения быть преобразованы в float
-#  возвращает список float только с дробными значениями и целой частью = 0
-
+#  список float
 
 def get_coll():
-    digit = 1
-    new_coll = []
-    while digit:
-        try:
-            coll = list(input('введите список вещественных чисел через пробел: ').split())
-            #  проверка на правильный ввод и создание нового списка
-            for i in coll:
-                if not i.isdigit():
-                    new_coll = float(i)
-            digit = 0
-        except:
-            new_coll.clear()
-            print('невозможно преобразовать в float')
-    return new_coll
-
-
-
-
-def find_max(coll):
-    maxx = coll[0]
-    minn = coll[0]
-    factor = 1
     
-    # цикл вычисляет максимальный порядок дробного остатка:
+    coll = []
+    empty = 1
+    while empty:
+        try:
+            coll = list(map(float, input('введите список вещественных чисел через пробел: ').split()))
+            empty = 0
+        except:
+            coll.clear()
+            print('неправильный ввод')
+    return coll
+
+
+
+#  метод вычисляет максимальный порядок дробного остатка:
+
+def get_factor(coll):
+    factor = 1
     for i in coll:
         while i * factor != int(i * factor):
             factor *= 10
-            
+    return factor
+
+
+
+
+#  поиск мин и макс:
+
+def find_max(coll, factor):
+    
+    maxx = coll[0]
+    minn = coll[0]
+    print(coll)
+    print(factor, 'f')
+    
     for i in range(len(coll)):
-        coll[i] *= factor % factor
+        print(round(coll[i]*factor), 'i rounded')
+        coll[i] = (round(coll[i] * factor)) % factor
+        
+    print(coll, 'after')
 
     #  поиск максимальной и минимальной дробной части:
+    
     for j in coll:
         if j > maxx:
             maxx = j
         if j < minn:
             minn = j
 
-    
-
-    return (maxx * factor - minn * factor) / factor
+    return (maxx / factor - minn / factor)
 
 
 num_collection = get_coll()
 
-print(find_max(num_collection))
+factor = get_factor(num_collection)
+
+result = find_max(num_collection, factor)
+
+#print(result)
