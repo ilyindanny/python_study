@@ -24,6 +24,3 @@ result = find_minn_maxx(data)
 with open('001.py', 'a') as file_data:
 	file_data.write('\n# {}\n\n'.format(result))
 
-
-# min = 1,  = 345
-
