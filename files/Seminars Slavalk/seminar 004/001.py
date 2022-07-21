@@ -19,6 +19,11 @@ def find_minn_maxx(coll):
 
 result = find_minn_maxx(data)
 
+
+# with open('001.py', 'a') as file_data:
+# 	file_data.write('\n# {}\n\n'.format(result))
+
 with open('Seminars Slavalk/seminar 004/001.txt', 'a') as file_data:
     file_data.write('\n# {}\n\n'.format(result))
+
 
