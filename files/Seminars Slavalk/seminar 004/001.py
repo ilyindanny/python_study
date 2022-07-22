@@ -1,6 +1,6 @@
 # Seminars Slavalk/seminar 004/001.txt
 
-with open('Seminars Slavalk/seminar 004/001.txt', 'r') as file_data:
+with open('001.txt', 'r') as file_data:
     data = file_data.readline()
 
 
@@ -23,7 +23,7 @@ result = find_minn_maxx(data)
 # with open('001.py', 'a') as file_data:
 # 	file_data.write('\n# {}\n\n'.format(result))
 
-with open('Seminars Slavalk/seminar 004/001.txt', 'a') as file_data:
+with open('001.txt', 'a') as file_data:
     file_data.write('\n# {}\n\n'.format(result))
 
 
