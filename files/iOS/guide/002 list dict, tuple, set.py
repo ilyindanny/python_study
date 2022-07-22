@@ -5,10 +5,23 @@ text_list = []
 # или сразу с инициализацией:
 text_list = ['abc', '123', 456]
 
-
 # или при помощи функции range:
 
 text_list = list(range(-2, 2))
+
+# или так:
+
+text_list = [0] * 10
+
+
+# копировать:
+
+numbers2 = list(text_list)
+
+# или так:
+
+numbers2 = text_list[:]
+
 
 # срез списка возвращает список:
 text_list_cut = text_list[0: 2]
