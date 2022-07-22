@@ -1,19 +1,26 @@
-import math
 import random
 
 # 1 Вычислить число c заданной точностью d
 
 # Пример:
 
-# - при d = 0.001, π = 3.141   10^{-1} ≤ d ≤10^{-10}
+# - при d = 0.001, π = 3.141   10^(-1) ≤ d ≤10^(-10)
 
 
-# coefficient = input('введите коэффициент в формате "0.001": ').split('.')[1]
-coefficient = '0.00001'
+# coefficient = len(input('введите коэффициент точности в формате "0.001": ').split('.')[1])
+coefficient = 6
 
-result = round(math.pi, len(coefficient))
 
-print(f'число ПИ с округлением до {coefficient} = {result}')
+def get_pi(d: int) -> int:
+	num_pi = 0
+	for n in range(d):
+		num_pi += 1 / 16 ** n * (4 / (8 * n + 1) - 2 / (8 * n + 4) - 1 / (8 * n + 5) - 1 / (8 * n + 6))
+	return num_pi
+
+
+result = list(str(get_pi(coefficient)).split('.'))
+result[1] = result[1][:coefficient]  # убрать лишние цифры без округления
+print(f'{result[0]}.{result[1]}')
 
 # 2 Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
 
@@ -141,8 +148,8 @@ def get_random_coefficients(power: int) -> list:
 	return nums
 
 
-def fill_formula(coll: list) -> str:
-	coll = coll[:]
+def fill_formula(nums: list) -> str:
+	coll = nums[:]
 	res = ''
 
 	if coll[1]:
@@ -158,7 +165,6 @@ def fill_formula(coll: list) -> str:
 		if i:
 			res += i
 
-	print(res)
 	return res
 
 
