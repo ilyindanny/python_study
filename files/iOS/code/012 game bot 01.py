@@ -1,5 +1,4 @@
 
-
 import random
 
 def set_map(n: int) -> set:
@@ -68,98 +67,7 @@ def enter(s1: list, s2: list, player) ->list:
 def enter_bot(s1: list, s2: list, matrix) ->list:
     done = 0
     while not done:
-            # нужные элементы на карте
-        good_list = []
-        for i in range(len(map)):
-            count = 1
-            for j in s1:
-                if j in map[i]:
-                    count = 0
-            if count:
-                good_list.append(map[i])
-    
-    
-    # шаблон цифр для поиска
-        nums = []
-        for i in range(matrix * matrix):
-            nums.append([i + 1, 0])
-    
-    
-    # более встречающиеся цифры
-        for i in good_list:
-            for j in i:
-                for k in range(len(nums)):
-                    if j == nums[k][0]:
-                        nums[k][1] += 1
-    
-        new_nums = []
-        max = 0
-    
-        for i in range(len(nums)):
-            if nums[i][1] > nums[max][1]:
-                max = i
-    
-        new_nums.append(nums[max])
-        del nums[max]
-    
-        max = new_nums[0][1]
-
-        for i in range(len(nums)):
-            if nums[i][1] == max:
-                new_nums.append(nums[i])
-        nums = []
-        for i in new_nums:
-            nums.append(i[0])
-        
-
-    
-    
-    # поиск на гуд-карте нужных цифр
-    # в каком варианте больше всего нужных цифр
-        best = []
-        for i in range(len(good_list)):
-            best.append([i, 0])
-            for j in nums:
-                if j in good_list[i]:
-                    best[i][1] += 1
-    
-    
-    
-    
-        nums = []
-        max = 0
-    
-    # выбрать из лучших
-    # вернет индексы нужных отрезков
-        for i in range(len(best)):
-            if best[i][1] > best[max][1]:
-                max = i
-    
-        nums.append(best[max])
-        del best[max]
-    
-        max = nums[0][1]
-
-        for i in range(len(best)):
-            if best[i][1] == max:
-                nums.append(best[i])
-        best = []
-        for i in nums:
-            best.append(i[0])
-        
-        
-    
-    
-        index1 = random.randint(0, len(best)-1)
-    
-        three = list(good_list[index1])
-    
-        index2 = random.randint(0, 2)
-    
-        n = three[index2]
-    
-    
-        
+        n = random.randint(1, matrix * matrix + 1)
         if n in s1 or n in s2:
             continue
         else:
