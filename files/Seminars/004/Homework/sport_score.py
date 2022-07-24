@@ -49,26 +49,16 @@ def get_result_list(d_gms):
 	return result_games
 
 
-def find_count(d_gms: list, res: list) -> list:
-	for i in range(len(res)):
-		count = 0
-		for j in d_gms:
-			if j in res[i][0]:
-				count += 1
-		res[i][1] = str(count) + res[i][1][1:]
-
-	return res
-
-
 def wins(d_gms, res):
 	for i in range(len(res)):
-
+		counter = 0
 		win = 0
 		drawn = 0
 		loss = 0
 
 		for j in range(1, len(d_gms), 4):
 			if d_gms[j] in res[i]:
+				counter += 1
 				score = int(d_gms[j + 1]) - int(d_gms[j + 3])
 				if score:
 					if score > 0:
@@ -79,6 +69,7 @@ def wins(d_gms, res):
 					drawn += 1
 
 			if d_gms[j + 2] in res[i]:
+				counter += 1
 				score = int(d_gms[j + 3]) - int(d_gms[j + 1])
 				if score:
 					if score > 0:
@@ -89,8 +80,8 @@ def wins(d_gms, res):
 					drawn += 1
 		sum_score = win * 3 + drawn
 
-		r = str(win) + ' ' + str(drawn) + ' ' + str(loss) + ' ' + str(sum_score) + ' '
-		res[i][1] = res[i][1][:2] + r
+		r = str(counter) + ' ' + str(win) + ' ' + str(drawn) + ' ' + str(loss) + ' ' + str(sum_score) + ' '
+		res[i][1] = r
 
 	return res
 
@@ -105,8 +96,6 @@ def output(res: list) -> str:
 
 
 results = get_result_list(data_games)
-
-results = find_count(data_games, results)
 
 results = wins(data_games, results)
 
