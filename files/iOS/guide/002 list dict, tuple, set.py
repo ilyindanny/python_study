@@ -81,17 +81,24 @@ for i in a:
     print()
 
 
-col = [3, 9, 4, 5, 2]
-9 in col # ищет 9 в col:
-print(col)
+coll = [3, 9, 4, 5, 2]
+9 in coll # ищет 9 в coll
+print(coll)
 
 # можно это написать соазу в параметрах функции print:
 
-print(9 in col)
+print(9 in coll)  # вернет True
 
 # сортировка списка:
 
-col.sort()
+coll.sort()
+
+# печать списка (только для str):
+
+mylist = ['a', 'b', 'c', 'b']
+
+delimiter = '_*_'
+print(delimiter.join(mylist))
 
 
 
