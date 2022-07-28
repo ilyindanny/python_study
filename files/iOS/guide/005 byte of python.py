@@ -40,4 +40,29 @@ a << 1
 a >> 1
 
 
+# время в пользовательском формате:
+
+import time
+print(time.strftime('%Y %m %d; %H:%M %S'))
+
+# мировре время:
+
+import datetime
+datetime.datetime.now()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
