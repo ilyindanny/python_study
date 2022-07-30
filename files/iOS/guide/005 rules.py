@@ -12,7 +12,7 @@ max(lst)
 # Хитинги нужно добавлять. Тогда IDE сможет давать подсказки:
 
 def f1(a: int, b: str) -> int:
-	return a + int(b)
+    return a + int(b)
 
 
 # Map.
@@ -81,10 +81,10 @@ print(res)
 # Вот то же самое с отдельным методом вместо лямбды:
 
 def f2(i):
-	if i % 2 == 0:
-		return True
-	else:
-		return False
+    if i % 2 == 0:
+        return True
+    else:
+        return False
 
 
 nums = list(filter(f2, nums))
@@ -93,3 +93,13 @@ print(nums)
 # Тернарный оператор:
 
 s = lambda x: True if (x > 10) else False
+
+
+# Функция count() возвращает количество вхождений.
+# Пример с поиском уникальных элементов:
+s = [x for x in nums if nums.count(x) == 1]
+
+# Пример:
+s = nums.count(5)
+
+
