@@ -33,6 +33,13 @@ s = tuple([(i, i ** 2) for i in nums if i % 2 == 0])  # перед for долж�
 print(type(s))
 print(s)
 
+# Еще пример:
+
+list_one = [2, 3, 4]
+list_two = [2*i for i in list_one if i > 2]
+
+print(list_two)
+
 
 # это список:
 nums = []
