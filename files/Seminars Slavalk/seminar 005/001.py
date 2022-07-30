@@ -58,6 +58,18 @@ for i in range(len(nums)):
 print(*result)
 
 
+# Задача 3
+# если есть 'абв', удалить все слово
+
+word = 'абв'
+start_string = 'Слава объясняет нам абв вабв правила'
+
+result = list(filter(lambda i: word not in i, start_string.split()))
+
+result = [i for i in start_string.split() if word not in i]
+
+
+print(result)
 
 
 
