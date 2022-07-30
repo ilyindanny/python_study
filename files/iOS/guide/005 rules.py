@@ -4,12 +4,12 @@
 
 
 # функции возвращают минимальное и максимальное число в списке типа int:
-
+lst = [1, 2, 3, 4]
 min(lst)
 max(lst)
 
 
-# Хитинги нужно добавлять. Тогда IDE сможет давать подсказки:
+# Type Hinting нужно добавлять. Тогда IDE сможет давать подсказки:
 
 def f1(a: int, b: str) -> int:
 	return a + int(b)
@@ -52,8 +52,12 @@ lst = [int(x) for x in text.split()]
 
 list_one = [2, 3, 4]
 list_two = [2 * i for i in list_one if i > 2]
-
 print(list_two)
+
+# Еще пример:
+
+s = tuple((i, i + 1) for i in range(7))
+print(s)
 
 # Это список:
 nums = []
@@ -90,6 +94,23 @@ def f2(i):
 nums = list(filter(f2, nums))
 print(nums)
 
+# Еще пример с методом filter(). Первым параметром метода filter должен быть именно метод (без скобок):
+s = [1, 2, 3.3, '4', '5']
+s = list(filter(lambda i: type(i) == int, s))
+print(s)
+
 # Тернарный оператор:
 
 s = lambda x: True if (x > 10) else False
+
+# Функция zip() собирает несколько объектов в один. к примеру можно создать из двух списков словарь:
+
+n = [1, 2, 3, 4, 5]
+m = ['a', 'b', 'c', 'd', 'e']
+
+result = dict(zip(n, m))
+print(result)
+
+# Функция enumerate() нумерует с нуля список
+result = list(enumerate(m))
+print(result)
