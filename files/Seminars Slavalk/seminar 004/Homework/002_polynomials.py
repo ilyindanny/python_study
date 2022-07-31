@@ -2,9 +2,9 @@
 # Задача - сформировать файл, содержащий сумму многочленов.
 
 
-path1 = '002_polynomials_1.txt'
-path2 = '002_polynomials_2.txt'
-path3 = '002_polynomials_result.txt'
+path1 = 'polynomials_1.txt'
+path2 = 'polynomials_2.txt'
+path3 = 'polynomials_result.txt'
 
 with open(path1, 'r') as file:
 	polynom_1 = file.readline()

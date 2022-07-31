@@ -179,4 +179,4 @@ with open(path, 'w') as file_text:
 print(f'рандомные коэффициенты: {nums_collection[1:4]}')
 print(f'в файл {path} сохранена формула: {result}')
 
-# продолжение в файле 002_polynomials.py
+# продолжение в файле polynomials.py
