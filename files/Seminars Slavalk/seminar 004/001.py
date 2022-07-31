@@ -1,4 +1,4 @@
-# Seminars Slavalk/seminar 004/001.txt
+# Seminars Slavalk/seminar 004/abv.txt
 
 with open('001.txt', 'r') as file_data:
     data = file_data.readline()

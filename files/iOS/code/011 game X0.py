@@ -1,43 +1,43 @@
 
 def set_map(n: int) -> set:
 
-    map = []
+    my_map = []
     
     for i in range(n + n + 2):
-        map.append([0] * n)
+        my_map.append([0] * n)
     
     l = 1
     for i in range(n):
         for j in range(n):
-            map[i][j] = l
+            my_map[i][j] = l
             l += 1
     l = 1
     for i in range(n):
         for j in range(n, n + n):
-            map[j][i] = l
+            my_map[j][i] = l
             l += 1
     l = 1
     for i in range(n):
         for j in range(n + n, n + n + 1):
-            map[j][i] = l
+            my_map[j][i] = l
             l += n + 1
     l = n
     for i in range(n):
         for j in range(n + n + 1, n + n + 2):
-            map[j][i] = l
+            my_map[j][i] = l
             l += n - 1
     
     
-    for i in range(len(map)):
-        map[i] = set(map[i])
+    for i in range(len(my_map)):
+        my_map[i] = set(my_map[i])
     
-    return map
+    return my_map
 
 
 
-def win(m: set, map: set) -> bool:
+def win(m: set, my_map: set) -> bool:
     result = 0
-    for i in map:
+    for i in my_map:
         if m >= i:
             result = i
     return result
@@ -76,7 +76,7 @@ def print_all(s1: list, s2: list):
 
 
 matrix = 3
-map = set_map(matrix)
+my_map = set_map(matrix)
 
 s1 = []
 s2 = []
@@ -87,7 +87,7 @@ while True:
     s1 = enter(s1, s2, 1)
     print_all(s1, s2)
     m1 = set(s1)
-    result = win(m1, map)
+    result = win(m1, my_map)
     if result:
         print('1th won ', result)
         break
@@ -99,7 +99,7 @@ while True:
     s2 = enter(s2, s1, 2)
     print_all(s1, s2)
     m2 = set(s2)
-    result = win(m2, map)
+    result = win(m2, my_map)
     if result:
         print('2nd won ', result)
         break

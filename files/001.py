@@ -1,19 +1,11 @@
-
-
 def write_into_file():
-    res = '\
-    # functions\n\
+	res = '\
+	functions\n'
+
 
 def f1(x):
-    write('Hello world!')'
+	print('Hello world!')
 
 
-
-
-
-
-
-
-
-with open ('fs', 'a') as file:
-    file.write('# functions\n')
+with open('fs', 'a') as file:
+	file.write('# functions\n')
