@@ -24,10 +24,10 @@ str_nums = '1 2 3 4 5 6 7 8'
 
 nums = list(map(int, str_nums.split()))  # это итерируемый объект типа map.
 
-# Comprehensions, возвращает кортежи в список.
+# Comprehensions, возвращает список.
 # Перед for должно быть написано только то, что непосредственно возвращается:
 
-s = list([(i, i ** 2) for i in nums if i % 2 == 0])
+s = [(i, i ** 2) for i in nums if i % 2 == 0]
 
 print(type(s))
 print(s)
@@ -105,6 +105,10 @@ print(s)
 
 s = lambda x: True if (x > 10) else False
 
+# Функция map():
+
+f = lambda x: 1 if (x % 2 == 0) else 2
+r = list(map(f, s))
 
 # Функция zip() собирает несколько объектов в один. к примеру можно создать из двух списков словарь:
 
@@ -124,4 +128,26 @@ s = [x for x in nums if nums.count(x) == 1]
 
 # Пример:
 s = nums.count(5)
+
+
+k = [(1,2), (3,4)]
+l = [(1,2), (3,4)]
+
+s = list(map(lambda x: x[0] * x[1], k))
+print(s)
+
+# То же самое:
+s = [x[0] * x[1] for x in k]
+print(s)
+
+# Пример передачи в функцию кортеда через звездочку. Причем передать можео и список, просто распакуется он в кортеж (аргументы вроде всегда передаются параметру как константы):
+def f(x, y):
+    return x**y
+
+s = [f(*x) for x in l]
+print(s)
+
+# Пример вложенных списков в comprehension:
+s = [i * j for i in range(1,4) for j in range(1,4)]
+print(s)
 
