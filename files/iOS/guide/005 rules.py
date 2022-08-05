@@ -56,6 +56,12 @@ list_one = [2, 3, 4]
 list_two = [2 * i for i in list_one if i > 2]
 print(list_two)
 
+# Еще пример с comprehension:
+
+s = [8, 5, 3, 2, 1, 1, 0, 1, 1, 2, 3, 5, 8]
+a = [s[x] * -1 if x % 2 == 0 and x <= len(s) / 2 else s[x] for x in range(len(s))]
+print(a)
+
 # Еще пример:
 
 s = tuple((i, i + 1) for i in range(7))
@@ -103,7 +109,7 @@ print(s)
 
 # Тернарный оператор:
 
-s = lambda x: True if (x > 10) else False
+f = lambda x: True if (x > 10) else False
 
 # Функция map():
 
@@ -150,4 +156,20 @@ print(s)
 # Пример вложенных списков в comprehension:
 s = [i * j for i in range(1,4) for j in range(1,4)]
 print(s)
+
+# Еще пример compehension с join(), split() и if в одной строке:
+
+print(' '.join([i for i in input('enter words with "abc": ').lower().split() if 'abc' not in i]))
+
+
+# Функция ord() возвращает номер символа в таблице utf-8:
+n = ord('a')
+
+# Функция chr() возвращает символ по номеру в таблице utf-8:
+m = chr(97)
+
+# Символ таблицы Юникод выводится вот так:
+
+print('\u00B9')
+
 
