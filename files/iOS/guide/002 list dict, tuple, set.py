@@ -25,7 +25,11 @@ numbers2 = list(text_list)
 
 # Или так:
 
-numbers2 = text_list[:]
+numbers2 = text_list[:]  # Срез списка создает копию списка.
+
+# Или так:
+
+numbers2 = copy.deepcopy(text_list)  # Это тоже копия, то есть не ссылка.
 
 # Срез списка возвращает список:
 
