@@ -12,10 +12,10 @@ coefficient = 6
 
 
 def get_pi(d: int) -> int:
-	num_pi = 0
-	for n in range(d):
-		num_pi += 1 / 16 ** n * (4 / (8 * n + 1) - 2 / (8 * n + 4) - 1 / (8 * n + 5) - 1 / (8 * n + 6))
-	return num_pi
+    num_pi = 0
+    for n in range(d):
+        num_pi += 1 / 16 ** n * (4 / (8 * n + 1) - 2 / (8 * n + 4) - 1 / (8 * n + 5) - 1 / (8 * n + 6))
+    return num_pi
 
 
 result = list(str(get_pi(coefficient)).split('.'))
@@ -31,35 +31,35 @@ numm = 95
 #  создать список от нуля до numm
 
 def nums_coll(n: int) -> list:
-	coll = []
-	for i in range(n + 1):
-		coll.append(i)
+    coll = []
+    for i in range(n + 1):
+        coll.append(i)
 
-	return coll
+    return coll
 
 
 # найти простые числа в списке от нуля до числа numm.
 
 def get_primes(coll: list) -> list:
-	i = 2
-	while i < len(coll):
-		del coll[i + i::i]
-		i += 1
+    i = 2
+    while i < len(coll):
+        del coll[i + i::i]
+        i += 1
 
-	del coll[0:2]  # удалить ненужные 0 и 1
-	return coll
+    del coll[0:2]  # удалить ненужные 0 и 1
+    return coll
 
 
 # проверить, какие из простых чисел являются множителями числа numm
 
 def find_result(coll: list, n: int) -> list:
-	i = 0
-	while i < len(coll):
-		if n % coll[i]:
-			del coll[i]
-		else:
-			i += 1
-	return coll
+    i = 0
+    while i < len(coll):
+        if n % coll[i]:
+            del coll[i]
+        else:
+            i += 1
+    return coll
 
 
 nums_collection = nums_coll(numm)
@@ -69,6 +69,22 @@ primes = get_primes(nums_collection)
 result = find_result(primes, numm)
 
 print(f'список простых множителей числа {numm}: {result}')
+
+
+# Второй вариант решения задачи (от Дениса Макарцева):
+
+n = 95
+for i in range(2, n + 1):
+    if n % i == 0:
+        count = 0
+        for j in range(1, i + 1):
+            if i % j == 0:
+                count += 1
+            if count > 2:
+                break
+        if count == 2:
+            print(i, end=' ')
+
 
 # 3 Задайте последовательность чисел.
 # Напишите программу, которая выведет список неповторяющихся элементов исходной последовательности.
@@ -80,45 +96,59 @@ numm = 10
 
 # создать список, заполненный случайными числами
 def get_random_coll(n: int) -> list:
-	coll = []
-	for i in range(n):
-		coll.append(random.randint(0, 10))
+    coll = []
+    for i in range(n):
+        coll.append(random.randint(0, 10))
 
-	return coll
+    return coll
 
 
 # найти уникальные элементы коллекции
 def find_unique_nums(coll: list) -> list:
-	coll = coll[:]
-	i = 0
+    coll = coll[:]
+    i = 0
 
-	while i < len(coll):
-		n = coll[i]
-		if n in coll[i + 1:]:
-			while n in coll:
-				coll.remove(n)
-		else:
-			i += 1
+    while i < len(coll):
+        n = coll[i]
+        if n in coll[i + 1:]:
+            while n in coll:
+                coll.remove(n)
+        else:
+            i += 1
 
-	return coll
+    return coll
 
 
 '''
 # найти уникальные элементы коллекции (альтернативный вариант)
 def find_uniq_nums(coll: list) -> list:
-	stop_list = []
-	new_coll = []
+    stop_list = []
+    new_coll = []
 
-	for i in range(len(coll)):
-		if coll[i] in coll[i + 1:]:
-			stop_list.append(coll[i])
-	for i in coll:
-		if i in stop_list:
-			continue
-		else:
-			new_coll.append(i)
+    for i in range(len(coll)):
+        if coll[i] in coll[i + 1:]:
+            stop_list.append(coll[i])
+    for i in coll:
+        if i in stop_list:
+            continue
+        else:
+            new_coll.append(i)
 
-	return new_coll
+    return new_coll
+
+
+# Еще вприант решения от Дениса Макарцева:
+
+list1 = [45, -10, 23, 2, 45, -10, 11]
+d = {}
+for i in list1:
+    if i not in d:
+        d[i] = 1
+    else:
+        d[i] += 1
+
+print([x for x in d.keys() if d[x] == 1])
+
 '''
 
 nums_collection = get_random_coll(numm)
@@ -140,32 +170,32 @@ natural_power = 2
 
 
 def get_random_coefficients(power: int) -> list:
-	nums = [power]
-	for i in range(3):
-		nums.append(random.randint(0, 100))
-	nums.append('= 0')
+    nums = [power]
+    for i in range(3):
+        nums.append(random.randint(0, 100))
+    nums.append('= 0')
 
-	return nums
+    return nums
 
 
 def fill_formula(nums: list) -> str:
-	coll = nums[:]
-	res = ''
+    coll = nums[:]
+    res = ''
 
-	if coll[1]:
-		coll[1] = str(f'{str(coll[1])}x^{coll[0]} ')
-		if coll[2]:
-			coll[2] = str(f'+ {str(coll[2])}x ')
-		if coll[3]:
-			coll[3] = str(f'+ {coll[3]} ')
-	else:
-		coll = [0, '0']
+    if coll[1]:
+        coll[1] = str(f'{str(coll[1])}x^{coll[0]} ')
+        if coll[2]:
+            coll[2] = str(f'+ {str(coll[2])}x ')
+        if coll[3]:
+            coll[3] = str(f'+ {coll[3]} ')
+    else:
+        coll = [0, '0']
 
-	for i in coll[1:]:
-		if i:
-			res += i
+    for i in coll[1:]:
+        if i:
+            res += i
 
-	return res
+    return res
 
 
 nums_collection = get_random_coefficients(natural_power)
@@ -174,7 +204,7 @@ result = fill_formula(nums_collection)
 
 path = '001.txt'
 with open(path, 'w') as file_text:
-	file_text.write(result)
+    file_text.write(result)
 
 print(f'рандомные коэффициенты: {nums_collection[1:4]}')
 print(f'в файл {path} сохранена формула: {result}')
