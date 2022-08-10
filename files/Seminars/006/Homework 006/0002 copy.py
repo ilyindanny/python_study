@@ -113,4 +113,3 @@ result = find_result(nums_list)
 print('{}={}'.format(user_input,result))
 
 print('проверка методом eval():', eval(user_input))
-
