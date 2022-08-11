@@ -33,11 +33,8 @@ def mult_of_digit(n):
 	result = 1
 	for i in range(1, n + 1):
 		result *= i
-<<<<<<< HEAD
+
 		print('ответ: {}'.format(result))
-=======
-		print(result)
->>>>>>> dev
 
 
 mult_of_digit(num)

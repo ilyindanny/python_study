@@ -14,7 +14,7 @@ max(lst)
 # Type Hinting нужно добавлять. Тогда IDE сможет давать подсказки:
 
 def f1(a: int, b: str) -> int:
-    return a + int(b)
+	return a + int(b)
 
 
 # Map.
@@ -93,14 +93,18 @@ print(res)
 # Вот то же самое с отдельным методом вместо лямбды:
 
 def f2(i):
-    if i % 2 == 0:
-        return True
-    else:
-        return False
+	if i % 2 == 0:
+		return True
+	else:
+		return False
 
 
 nums = list(filter(f2, nums))
 print(nums)
+
+# Еще lambda:
+
+x = list(filter(lambda i: (nums[i] - nums[i - 1]) != 1, range(1, len(nums))))
 
 # Еще пример с методом filter(). Первым параметром метода filter должен быть именно метод (без скобок):
 s = [1, 2, 3.3, '4', '5']
@@ -135,9 +139,8 @@ s = [x for x in nums if nums.count(x) == 1]
 # Пример:
 s = nums.count(5)
 
-
-k = [(1,2), (3,4)]
-l = [(1,2), (3,4)]
+k = [(1, 2), (3, 4)]
+l = [(1, 2), (3, 4)]
 
 s = list(map(lambda x: x[0] * x[1], k))
 print(s)
@@ -146,21 +149,23 @@ print(s)
 s = [x[0] * x[1] for x in k]
 print(s)
 
-# Пример передачи в функцию кортеда через звездочку. Причем передать можео и список, просто распакуется он в кортеж (аргументы вроде всегда передаются параметру как константы):
+
+# Пример передачи в функцию кортежа через звездочку. Причем передать можно и список,
+# просто распакуется он в кортеж (аргументы вроде всегда передаются параметру как константы):
 def f(x, y):
-    return x**y
+	return x ** y
+
 
 s = [f(*x) for x in l]
 print(s)
 
 # Пример вложенных списков в comprehension:
-s = [i * j for i in range(1,4) for j in range(1,4)]
+s = [i * j for i in range(1, 4) for j in range(1, 4)]
 print(s)
 
-# Еще пример compehension с join(), split() и if в одной строке:
+# Еще пример comprehension с join(), split() и if в одной строке:
 
 print(' '.join([i for i in input('enter words with "abc": ').lower().split() if 'abc' not in i]))
-
 
 # Функция ord() возвращает номер символа в таблице utf-8:
 n = ord('a')
@@ -171,5 +176,3 @@ m = chr(97)
 # Символ таблицы Юникод выводится вот так:
 
 print('\u00B9')
-
-
