@@ -50,27 +50,38 @@ def math_operations(n: list) ->list:
     nums = n[:]
     while len(nums) > 1:
         res = 0
+        k = len(nums)
+        l = len(nums)
         i = 0
 
-        if '*' in nums:
-            i = nums.index('*')
-            res = nums[i-1] * nums[i+1]
-            
-        elif '/' in nums:
-            i = nums.index('/')
-            res = nums[i-1] / nums[i+1]
-            
-        elif '+' in nums:
-            i = nums.index('+')
-            res = nums[i-1] + nums[i+1]
-            
-        elif '-' in nums:
-            i = nums.index('-')
-            if i == 0:
-                res = nums[i+1] * -1
+        if '*' in nums or '/' in nums:
+            if '*' in nums:
+                k = nums.index('*')
+            if '/' in nums:
+                l = nums.index('/')
+            if k < l:
+                i = k
+                res = nums[i-1] * nums[i+1]
             else:
-                res = nums[i-1] - nums[i+1]
-                
+                i = l
+                res = nums[i-1] / nums[i+1]
+            
+        else:
+            if '+' in nums:
+                k = nums.index('+')
+            if '-' in nums:
+                l = nums.index('-')
+            if k < l:
+                i = k
+                res = nums[i-1] + nums[i+1]
+            else:
+                i = l
+                if i == 0:
+                    res = nums[i+1] * -1
+                else:
+                    res = nums[i-1] - nums[i+1]
+        
+        # Если выражение является отрицательным числом в скобках, то возвращается отрицательное число:
         if i == 0:
             del nums[i:i+2]
             nums.insert(i, res)
@@ -103,8 +114,9 @@ def find_result(n: list) ->list:
     return nums
 
 
-user_input = get_user_input()
-# user_input = '-21*(2*(21+32))-(22-2)-(-100)'
+#user_input = get_user_input()
+#user_input = '-21*(2*(21+32))-(22-2)-(-100)'
+user_input = '224+34-16/4/2+(5-3*2-8/2)*2+56*34+16/(-4)'
 
 nums_list = get_list_from_str(user_input)
 

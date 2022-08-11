@@ -11,36 +11,21 @@
 # (1+2)*3 => 9;
 
 
-def get_user_input() ->str:
-    """Принимает на ввод выражение, проверяет корректность и создает строку"""
-    nums = ''
-    flag = 1
-    while flag:
-        nums = input('Введите арифметическое выражение: ')
-        for i in nums:
-            if i in '0123456789+-*/^()' and ('*' in nums or '/' in nums or '+' in nums or '-' in nums):
-                flag = 0
-        if flag:
-            print('Неверный ввод, используйте  + - * / ( ) и цифры')
-    
-    return nums
-
-
 def get_list_from_str(nums: str) -> list:
-    """Преобразует артфметическое выражение, заданное строкой, в список, цифры конвертирует в int"""
+    """Преобразует арифметическое выражение, заданное строкой, в список, цифры конвертирует в int"""
     res = []
-    temp_collect_nums = ''
+    temp_nums_collection = ''
     
     for i in range(len(nums)):
-        if nums[i] in '0123456789':
-            temp_collect_nums += nums[i]
+        if nums[i].isdigit():
+            temp_nums_collection += nums[i]
         else:
-            if len(temp_collect_nums):
-                res.append(int(temp_collect_nums))
-            temp_collect_nums = ''
+            if len(temp_nums_collection):
+                res.append(int(temp_nums_collection))
+            temp_nums_collection = ''
             res.append(nums[i])
-    if len(temp_collect_nums):
-                res.append(int(temp_collect_nums))
+    if len(temp_nums_collection):
+                res.append(int(temp_nums_collection))
     
     return res
 
@@ -50,27 +35,38 @@ def math_operations(n: list) ->list:
     nums = n[:]
     while len(nums) > 1:
         res = 0
+        k = len(nums)
+        l = len(nums)
         i = 0
 
-        if '*' in nums:
-            i = nums.index('*')
-            res = nums[i-1] * nums[i+1]
-            
-        elif '/' in nums:
-            i = nums.index('/')
-            res = nums[i-1] / nums[i+1]
-            
-        elif '+' in nums:
-            i = nums.index('+')
-            res = nums[i-1] + nums[i+1]
-            
-        elif '-' in nums:
-            i = nums.index('-')
-            if i == 0:
-                res = nums[i+1] * -1
+        if '*' in nums or '/' in nums:
+            if '*' in nums:
+                k = nums.index('*')
+            if '/' in nums:
+                l = nums.index('/')
+            if k < l:
+                i = k
+                res = nums[i-1] * nums[i+1]
             else:
-                res = nums[i-1] - nums[i+1]
-                
+                i = l
+                res = nums[i-1] / nums[i+1]
+            
+        else:
+            if '+' in nums:
+                k = nums.index('+')
+            if '-' in nums:
+                l = nums.index('-')
+            if k < l:
+                i = k
+                res = nums[i-1] + nums[i+1]
+            else:
+                i = l
+                if i == 0:
+                    res = nums[i+1] * -1
+                else:
+                    res = nums[i-1] - nums[i+1]
+        
+        # Если выражение является отрицательным числом в скобках, то возвращается отрицательное число:
         if i == 0:
             del nums[i:i+2]
             nums.insert(i, res)
@@ -82,7 +78,7 @@ def math_operations(n: list) ->list:
 
 
 def find_result(n: list) ->list:
-    """Принтмает список — арифметическое выражение. Передает методу вычисление в скобках, потом заменяет выражение в скобках на результат вычисления"""
+    """Принимает список — арифметическое выражение. Передает методу вычисление выражения в скобках, потом заменяет выражение в скобках на результат вычисления"""
     nums = n[:]
      
     while '(' in nums:
@@ -103,8 +99,7 @@ def find_result(n: list) ->list:
     return nums
 
 
-user_input = get_user_input()
-# user_input = '-21*(2*(21+32))-(22-2)-(-100)'
+user_input = '-21*(2*(21+32))-(22-2)-(-100)'
 
 nums_list = get_list_from_str(user_input)
 
